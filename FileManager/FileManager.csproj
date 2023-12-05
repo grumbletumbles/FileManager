@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="src\Parsers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="FluentChaining" Version="1.0.4" />
     </ItemGroup>
 
