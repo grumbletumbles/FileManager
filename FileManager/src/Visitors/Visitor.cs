@@ -47,7 +47,7 @@ public class Visitor : IVisitor
             throw new ArgumentNullException(nameof(directoryNode));
         var dirs = new List<string>(Directory.EnumerateDirectories(directoryNode.FullPath));
 
-        foreach (DirectoryNode dirNode in dirs.Select(dir => new DirectoryNode(dir)))
+        foreach (var dirNode in dirs.Select(dir => new DirectoryNode(dir)))
         {
             _printer.Print(Format(dirNode));
 
@@ -63,7 +63,7 @@ public class Visitor : IVisitor
         }
 
         var files = new List<string>(Directory.EnumerateFiles(directoryNode.FullPath));
-        foreach (string file in files)
+        foreach (var file in files)
         {
             _printer.Print(Format(new FileNode(file)));
         }
