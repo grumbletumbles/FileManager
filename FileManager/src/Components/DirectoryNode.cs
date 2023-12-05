@@ -6,7 +6,7 @@ public class DirectoryNode : INode
 {
     public DirectoryNode(string path)
     {
-        FullPath = path ?? throw new ArgumentNullException(nameof(path));
+        FullPath = path;
         Name = path[(path.LastIndexOf(Path.DirectorySeparatorChar) + 1)..];
     }
 
@@ -15,8 +15,6 @@ public class DirectoryNode : INode
 
     public void Accept(IVisitor visitor)
     {
-        if (visitor is null)
-            throw new ArgumentNullException(nameof(visitor));
         visitor.Visit(this);
     }
 }

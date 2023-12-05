@@ -36,15 +36,11 @@ public class Visitor : IVisitor
 
     public void Visit(FileNode fileNode)
     {
-        if (fileNode is null)
-            throw new ArgumentNullException(nameof(fileNode));
         _printer.Print(Format(fileNode));
     }
 
     public void Visit(DirectoryNode directoryNode)
     {
-        if (directoryNode is null)
-            throw new ArgumentNullException(nameof(directoryNode));
         var dirs = new List<string>(Directory.EnumerateDirectories(directoryNode.FullPath));
 
         foreach (var dirNode in dirs.Select(dir => new DirectoryNode(dir)))
